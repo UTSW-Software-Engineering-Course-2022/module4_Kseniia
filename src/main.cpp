@@ -206,7 +206,7 @@ int main(int argc, char* argv[])
 
     // Load reference from fasta file
     {
-        FReference ref("/Users/kdudnyk/Downloads/chr22.fa"); // load fasta file
+        FReference ref("small.fa"); // load fasta file
 
         std::cout << "Reference sequence length: " << ref.Sequence.length() << std::endl;
         // print first 100bp
@@ -221,7 +221,7 @@ int main(int argc, char* argv[])
         //cout << "Following is suffix array for " << txt << endl;
         //printArr(suffixArr, n);
         //save the result
-        saveArr(suffixArr, n, "/Users/kdudnyk/Downloads/example.txt");
+        saveArr(suffixArr, n, "output.txt");
         cout<<"Done!"<<endl;
         
         
