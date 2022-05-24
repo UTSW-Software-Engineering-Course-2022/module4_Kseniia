@@ -7,6 +7,7 @@
 #include <vector>
 #include <cstring>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -84,12 +85,15 @@ int cmp(struct suffix a, struct suffix b)
                (a.rank[0] < b.rank[0] ?1: 0);
 }
  
-
+class vector;
 // build and return the suffix array for the given string
 int *buildSuffixArray(char *txt, int n)
 {
     // store suffixes and their indexes
-    struct suffix suffixes[n];
+    
+    std::vector<struct suffix> suffixes(n);
+    
+    //struct suffix suffixes[n];
  
     for (int i = 0; i < n; i++)
     {
@@ -99,9 +103,11 @@ int *buildSuffixArray(char *txt, int n)
     }
  
     // Sort the suffixes
-    sort(suffixes, suffixes+n, cmp);
-
-    int ind[n];
+    sort(suffixes.begin(), suffixes.end(), cmp);
+    
+    int *ind;
+    ind = new int [n];
+    //int ind[n];
     for (int k = 4; k < 2*n; k = k*2)
     {
         // Assigning rank and index values to first suffix
@@ -138,7 +144,7 @@ int *buildSuffixArray(char *txt, int n)
         }
  
         // Sort the suffixes according to first k characters
-        sort(suffixes, suffixes+n, cmp);
+        sort(suffixes.begin(), suffixes.end(), cmp);
     }
  
     // Store indexes of all sorted suffixes in the suffix array
@@ -146,7 +152,7 @@ int *buildSuffixArray(char *txt, int n)
     for (int i = 0; i < n; i++)
         suffixArr[i] = suffixes[i].index;
         
- 
+    free(ind);
     // Return the suffix array
     return  suffixArr;
 }
@@ -206,22 +212,29 @@ int main(int argc, char* argv[])
 
     // Load reference from fasta file
     {
-        FReference ref("small.fa"); // load fasta file
+        FReference ref("/Users/kdudnyk/Downloads/chr22.fa"); // load fasta file
+        //FReference ref("/Users/kdudnyk/Downloads/SEClass-main/Example_Files/small.fa");
 
         std::cout << "Reference sequence length: " << ref.Sequence.length() << std::endl;
         // print first 100bp
         std::cout << ref.Sequence.substr(0, 100) << std::endl;
-        std::cout << ref.Sequence<< std::endl;
+       //std::cout << ref.Sequence<< std::endl;
         
         //create a suffix array for the sequence
         int n = ref.Sequence.length();
-        char txt[n + 1];
+        char *txt;
+        txt = new char [n+1];
+        //char txt[n + 1];
         strcpy(txt, ref.Sequence.c_str());
+        
+//        int *suffixArr;
+//        suffixArr = new int [n];
+//        suffixArr = buildSuffixArray(txt,  n);
         int *suffixArr = buildSuffixArray(txt,  n);
         //cout << "Following is suffix array for " << txt << endl;
         //printArr(suffixArr, n);
         //save the result
-        saveArr(suffixArr, n, "output.txt");
+        saveArr(suffixArr, n, "/Users/kdudnyk/Downloads/example.txt");
         cout<<"Done!"<<endl;
         
         
