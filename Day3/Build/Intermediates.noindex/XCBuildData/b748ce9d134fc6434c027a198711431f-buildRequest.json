@@ -1,0 +1,50 @@
+{
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "cd00e145ce0928ad125384cc7bddd3f8f5d939de3fd23d900c088c5a85b062ea"
+    }
+  ],
+  "continueBuildingAfterErrors" : false,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "x86_64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "macosx",
+      "sdk" : "macosx11.3",
+      "sdkVariant" : "macos",
+      "supportedArchitectures" : [
+        "x86_64h",
+        "x86_64"
+      ],
+      "targetArchitecture" : "x86_64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/kdudnyk/Documents/Module4/Day3/Day3/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/kdudnyk/Documents/Module4/Day3/Day3/Build/Products",
+      "derivedDataPath" : "/Users/kdudnyk/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/kdudnyk/Library/Developer/Xcode/DerivedData/Day3-fyusisgdztyuphanvumoewuwmkdc/Index/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/kdudnyk/Library/Developer/Xcode/DerivedData/Day3-fyusisgdztyuphanvumoewuwmkdc/Index/PrecompiledHeaders",
+      "pchPath" : "/Users/kdudnyk/Documents/Module4/Day3/Day3/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "launch",
+  "shouldCollectMetrics" : false,
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}
