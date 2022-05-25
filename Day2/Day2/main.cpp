@@ -261,7 +261,7 @@ int main(int argc, char* argv[])
     // Load reference from fasta file
     {
         
-        FReference ref("small.fa"); // load fasta file
+        FReference ref(argv[0]); // load fasta file
 
         std::cout << "Reference sequence length: " << ref.Sequence.length() << std::endl;
         //print first 100bp
@@ -275,18 +275,18 @@ int main(int argc, char* argv[])
         strcpy(txt, ref.Sequence.c_str());
         int *suffixArr = buildSuffixArray(txt,  n);
         
-        saveArr(suffixArr, n, "suffixarray.txt");
+        saveArr(suffixArr, n, argv[2]);
  
         //search
         std::vector<string>queryVector;
-        queryVector = LoadQueryFromFasta("small_reads.fa");
+        queryVector = LoadQueryFromFasta(argv[1]);
         int nq=queryVector.size();
         int i=0;
         while (i < nq)
         {
             char query[queryVector[i].length()];
             strcpy(query, queryVector[i].c_str());
-            search(query, txt, suffixArr, n, "query_allign.txt", i);
+            search(query, txt, suffixArr, n, argv[3]", i);
             i = i+1;
             
         }
