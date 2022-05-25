@@ -177,44 +177,15 @@ void saveArr(int arr[], int n, string output_path)
     
 }
 
-/* 
- * Return filename from full path of file.
- *
- * InFilename   [In] Full path of file
- *
- * Return
- *   base filename
- *
- */
-static std::string GetFilename(const std::string& InFilename)
-{
-    const size_t pos = InFilename.find_last_of("/\\");
-    if (pos == std::string::npos) {
-        return InFilename;
-    }
 
-    return InFilename.substr(pos + 1);
-}
 
-void PrintUsage(const std::string& InProgramName)
-{
-    std::cerr << "Invalid Parameters" << std::endl;
-    std::cerr << "  " << InProgramName << " Reference_Fasta_File SuffixArray_File" << std::endl;
-}
-
-/**
- * 
- *
- */
 int main(int argc, char* argv[])
 {
     
 
     // Load reference from fasta file
     {
-        FReference ref("/Users/kdudnyk/Downloads/chr22.fa"); // load fasta file
-        //FReference ref("/Users/kdudnyk/Downloads/SEClass-main/Example_Files/small.fa");
-
+        FReference ref("chr22.fa"); // load fasta file
         std::cout << "Reference sequence length: " << ref.Sequence.length() << std::endl;
         // print first 100bp
         std::cout << ref.Sequence.substr(0, 100) << std::endl;
@@ -234,7 +205,7 @@ int main(int argc, char* argv[])
         //cout << "Following is suffix array for " << txt << endl;
         //printArr(suffixArr, n);
         //save the result
-        saveArr(suffixArr, n, "/Users/kdudnyk/Downloads/example.txt");
+        saveArr(suffixArr, n, "suffixarray.txt");
         cout<<"Done!"<<endl;
         
         
