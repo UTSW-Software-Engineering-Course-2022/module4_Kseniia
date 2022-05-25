@@ -214,13 +214,14 @@ void search(char *pat, char *txt, int *suffArr, int n, string output_file, int q
             
         }
         
-        outfile.close();
+        
         // Move to left half if pattern is alphabtically less than the mid suffix
         if (res < 0) r = mid - 1;
 
         // Otherwise move to right half
         else l = mid + 1;
     }
+    outfile.close();
     
 
 }
